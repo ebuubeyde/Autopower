@@ -117,25 +117,33 @@ class interface(object):
         webbrowser.open("https://github.com/ebuubeyde")
     def saat_fonksiyonu(self,sat):
         saati = self.saat_gir.itemText(sat)
+        si = subprocces.STARTUPINFO()
+        si.dwFlags = subprocces.STARTF_USESHOWWINDOW
         if saati == "1 saat":
-            subprocess.Popen("shutdown -s -t 3600",shell=True,stdout=subprocess.PIPE)
+            subprocess.Popen("shutdown -s -t 3600",startupinfo = si)
         elif saati == "2 saat":
-            subprocess.Popen("shutdown -s -t 7200",shell=True,stdout=subprocess.PIPE)
+            subprocess.Popen("shutdown -s -t 7200",startupinfo = si)
         elif saati == "3 saat":
-            subprocess.Popen("shutdown -s -t 10800",shell=True,stdout=subprocess.PIPE)
+            subprocess.Popen("shutdown -s -t 10800",startupinfo = si)
         elif saati == "4 saat":
-            subprocess.Popen("shutdown -s -t 14400",shell=True,stdout=subprocess.PIPE)
+            subprocess.Popen("shutdown -s -t 14400",startupinfo = si)
         elif saati == "5 saat":
-            subprocess.Popen("shutdown -s -t 18000",shell=True,stdout=subprocess.PIPE)
+            subprocess.Popen("shutdown -s -t 18000",startupinfo = si)
         elif saati == "6 saat":
-            subprocess.Popen("shutdown -s -t 21600",shell=True,stdout=subprocess.PIPE)
+            subprocess.Popen("shutdown -s -t 21600",startupinfo = si)
         else:pass
     def iptal_fonksiyonu(self):
-        subprocess.Popen("shutdown -a",shell=True,stdout=subprocess.PIPE)
+        si = subprocces.STARTUPINFO()
+        si.dwFlags = subprocces.STARTF_USESHOWWINDOW
+        subprocess.Popen("shutdown -a",startupinfo = si)
     def kapat_fonskiyonu(self):
-        subprocess.Popen("shutdown -p",shell=True,stdout=subprocess.PIPE)
+        si = subprocces.STARTUPINFO()
+        si.dwFlags = subprocces.STARTF_USESHOWWINDOW
+        subprocess.Popen("shutdown -p",startupinfo = si)
     def yeniden_baslat(self):
-        subprocess.Popen("shutdown -r",shell=True,stdout=subprocess.PIPE)
+        si = subprocces.STARTUPINFO()
+        si.dwFlags = subprocces.STARTF_USESHOWWINDOW
+        subprocess.Popen("shutdown -r",startupinfo = si)
 
     def goster(self):
         self.bilgi.setText("Belirtilen saat sonra bilgisayarın kapanmasını sağlar.")
